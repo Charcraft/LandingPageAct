@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | NIAVA Publisher</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <style>
+        .policy-container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .policy-section { margin-bottom: 2rem; }
+        .policy-section h2 { color: #3b82f6; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+        .policy-section h3 { color: #1f2937; margin-top: 1rem; }
+        .contact-box { background: #f3f4f6; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6; }
+        .data-list { padding-left: 1.5rem; }
+        .data-list li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="/" class="logo"><img src="/image/letra-c.png" alt="Logo" class="logo-img" size="40" height="40"></a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="policy-container">
+        <h1>Política de Privacidad - NIAVA Publisher</h1>
+        <p><strong>Última actualización:</strong> 11 de agosto de 2026</p>
+
+        <section class="policy-section">
+            <h2>1. Responsable del tratamiento</h2>
+            <p><strong>Nombre:</strong> Carlos de Jesus Martinez Pineda</p>
+            <p><strong>Contacto:</strong> carlosmartinezpineda.dev@gmail.com</p>
+            <p><strong>Rol:</strong> Desarrollador y administrador de la aplicación "NIAVA Publisher"</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>2. Qué datos recopilamos</h2>
+            <p>La aplicación <strong>NIAVA Publisher</strong> (app ID de Meta for Developers) recopila únicamente los datos mínimos necesarios para su función: publicación automática de contenido en la página de Facebook "NIAVA" (ID: 61593080555217) bajo autorización expresa del administrador.</p>
+            <ul class="data-list">
+                <li><strong>Token de acceso de página (Page Access Token):</strong> Otorgado voluntariamente por el administrador de la página a través del flujo OAuth de Meta. Este token permite publicar posts e imágenes en la página NIAVA.</li>
+                <li><strong>Contenido a publicar:</strong> Texto e imágenes que el administrador proporciona a la aplicación para su publicación.</li>
+                <li><strong>Datos de la página (solo lectura):</strong> Nombre, ID y foto de perfil de la página NIAVA, obtenidos vía Graph API para verificación de publicación.</li>
+            </ul>
+            <p><strong>NO recopilamos:</strong> datos personales de visitantes de la página, mensajes privados, emails, ubicación, contactos, ni ningún dato de terceros.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>3. Finalidad del tratamiento</h2>
+            <ul class="data-list">
+                <li>Publicar posts de texto e imágenes en la página de Facebook "NIAVA" mediante la Graph API oficial.</li>
+                <li>Verificar que la publicación se realizó correctamente (lectura del post publicado).</li>
+                <li>Gestionar el token de acceso de forma segura (almacenamiento local encriptado en la máquina del administrador).</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>4. Base legal</h2>
+            <p>El tratamiento se basa en el <strong>consentimiento explícito</strong> del administrador de la página (Art. 6.1.a RGPD), quien autoriza la aplicación mediante el flujo OAuth de Meta y proporciona voluntariamente el token de acceso de la página.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>5. Destinatarios de los datos</h2>
+            <p>Los datos <strong>no se comunican a terceros</strong>. Únicamente se transmiten a los servidores de Meta (Facebook/Graph API) para ejecutar las operaciones de publicación solicitadas por el administrador.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>6. Conservación de los datos</h2>
+            <ul class="data-list">
+                <li><strong>Token de página:</strong> Se almacena localmente mientras la aplicación esté activa. Los tokens de página de Meta <strong>no expiran</strong> salvo revocación manual.</li>
+                <li><strong>Contenido publicado:</strong> No se almacena en la aplicación tras la confirmación de publicación exitosa.</li>
+                <li>El administrador puede revocar el acceso en cualquier momento desde Meta (Configuración de la página → Avanzada → Tokens de acceso).</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>7. Derechos del usuario (Administrador)</h2>
+            <p>Como administrador y titular de los datos, tienes derecho a:</p>
+            <ul class="data-list">
+                <li><strong>Acceso:</strong> Solicitar qué datos trata la aplicación.</li>
+                <li><strong>Rectificación:</strong> Corregir datos inexactos.</li>
+                <li><strong>Supresión:</strong> Eliminar el token y revocar el acceso (ver sección 8).</li>
+                <li><strong>Oposición/Portabilidad:</strong> No aplicable al alcance de esta app.</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>8. Eliminación de datos (Instrucciones para Meta)</h2>
+            <div class="contact-box">
+                <h3>¿Cómo eliminar tus datos de NIAVA Publisher?</h3>
+                <p>Puedes revocar el acceso y eliminar el token de acceso de la página de cualquiera de estas formas:</p>
+                <ol>
+                    <li><strong>Desde Meta (recomendado):</strong> Entra a <a href="https://www.facebook.com/pages/NIAVA/61593080555217" target="_blank">Configuración de la página NIAVA</a> → <strong>Avanzada</strong> → <strong>Tokens de acceso</strong> → Revoca el token de "NIAVA Publisher".</li>
+                    <li><strong>Desde la app de Meta Developers:</strong> Panel de la app → <strong>Roles → Test Users</strong> o elimina la app completa.</li>
+                    <li><strong>Contacto directo:</strong> Envía un email a <strong>carlosmartinezpineda.dev@gmail.com</strong> con asunto "Eliminación de datos NIAVA Publisher" y procederemos a borrar el token local en 24h.</li>
+                </ol>
+                <p>Tras la revocación, la aplicación dejará de poder publicar automáticamente.</p>
+            </div>
+        </section>
+
+        <section class="policy-section">
+            <h2>9. Seguridad</h2>
+            <ul class="data-list">
+                <li>El token se almacena <strong>solo en la máquina local</strong> del administrador (archivo <code>fb_config.json</code>), no en servidores externos ni nube.</li>
+                <li>Comunicación exclusiva mediante <strong>HTTPS/TLS 1.2+</strong> contra <code>graph.facebook.com</code>.</li>
+                <li>La aplicación no tiene backend, base de datos, ni servicios de terceros.</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>10. Cambios en esta política</h2>
+            <p>Cualquier modificación se notificará al administrador y se actualizará la fecha de "Última actualización" al inicio de este documento.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>11. Contacto</h2>
+            <div class="contact-box">
+                <p><strong>Email para ejercer derechos / consultas / eliminación:</strong><br>
+                <a href="mailto:carlosmartinezpineda.dev@gmail.com">carlosmartinezpineda.dev@gmail.com</a></p>
+                <p><strong>Responsable:</strong> Carlos de Jesus Martinez Pineda</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Carlos de Jesus Martinez Pineda. Política de Privacidad de NIAVA Publisher.</p>
+    </footer>
+</body>
+</html>
