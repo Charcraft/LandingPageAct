@@ -2,24 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlos Martinez | Ingeniero en Sistemas</title>  
-     <link rel="stylesheet" href="/CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Portafolio de Carlos de Jesus Martinez Pineda, Ingeniero en Sistemas. Build. Scale. Optimize.">
+    <title>Carlos Martinez | Ingeniero en Sistemas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 
+    <div class="retro-bg">
+        <div class="retro-stars"></div>
+        <div class="retro-sun"></div>
+        <div class="retro-grid"></div>
+    </div>
+    <div class="retro-scanlines"></div>
+    <div class="retro-vignette"></div>
+
     <header>
-        <nav class="nav-container">
-            <a href="#" class="logo"><img src="/image/letra-c.png" alt="Logo de la página" class="logo-img" size="40" height="40"></a>
-            <ul class="nav-links">
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#lenguajes">Lenguajes</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#certificaciones">Certificaciones</a></li>
-            </ul>
+        <nav class="nav-container" aria-label="Navegación principal">
+            <a href="#sobre-mi" class="logo" aria-label="Ir al inicio"><img src="/image/letra-c.png" alt="" class="logo-img" width="32" height="32"></a>
+
+            <button class="nav-toggle" type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
         </nav>
     </header>
+
+    <!-- El panel va fuera de <header> a proposito: el backdrop-filter del header
+         crea un containing block, y un position:fixed dentro de el se anclaria
+         al header en vez de a la ventana. -->
+    <nav class="nav-menu" id="nav-menu" aria-label="Menú de secciones">
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#lenguajes">Lenguajes</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#certificaciones">Certificaciones</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-overlay" hidden></div>
 
     <section id="sobre-mi">
         <div class="sobre-mi-container">
@@ -36,7 +66,7 @@
             
             <div class="sobre-mi-foto-wrapper">
                 <div class="sobre-mi-foto-marco">
-                    <img class="perfil-img" src="/image/yopro.jpeg" alt="Fotografía de Tu Nombre">
+                    <img class="perfil-img" src="/image/yopro.jpeg" alt="Fotografía de Carlos de Jesus Martinez Pineda" width="340" height="340">
                 </div>
             </div>
         </div>
@@ -46,27 +76,27 @@
         <h2 class="titulo-seccion">Lenguajes de Programación</h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <img src="/image/hmtl-5.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/hmtl-5.png" alt="Logo de HTML5" width="48" height="48" loading="lazy" decoding="async">
                 <p>HTML5</p>
             </div>
             <div class="skill-card">
-                <img src="/image/css-3.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/css-3.png" alt="Logo de CSS3" width="48" height="48" loading="lazy" decoding="async">
                 <p>CSS3</p>
             </div>
             <div class="skill-card">
-                <img src="/image/mysql.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/mysql.png" alt="Logo de MySQL" width="48" height="48" loading="lazy" decoding="async">
                 <p>MySQL</p>
             </div>
             <div class="skill-card">
-                <img src="/image/python.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/python.png" alt="Logo de Python" width="48" height="48" loading="lazy" decoding="async">
                 <p>Python</p>
             </div>
             <div class="skill-card">
-                <img src="/image/java.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/java.png" alt="Logo de Java" width="48" height="48" loading="lazy" decoding="async">
                 <p>Java</p>
             </div>
             <div class="skill-card">
-                <img src="/image/c++logo.png" alt="Descripción del icono" width="40" height="40">
+                <img src="/image/c++logo.png" alt="Logo de C++" width="48" height="48" loading="lazy" decoding="async">
                 <p>C++</p>
             </div>
             
@@ -106,7 +136,7 @@
         <div class="eventos-grid">
             <div class="evento-card">
                 <div class="evento-contenedor-img">
-                    <img class="evento-img" src="/image/PlayeraRecordGuiness.jpeg" alt="World Record Guiness">
+                    <img class="evento-img" src="/image/PlayeraRecordGuiness.jpeg" alt="Formación de la silueta de una camiseta con cientos de personas para el récord Guinness" loading="lazy" decoding="async">
                 </div>
                 <div class="evento-info">
                     <span class="evento-tag">World Record Guiness</span>
@@ -116,7 +146,7 @@
             </div>
             <div class="evento-card">
                 <div class="evento-contenedor-img">
-                    <img class="evento-img" src="/image/conferenciaUni.jpg" alt="Conferencia Escolar Universitaria">
+                    <img class="evento-img" src="/image/conferenciaUni.jpg" alt="Ponentes en el escenario durante la Conferencia Escolar Universitaria" loading="lazy" decoding="async">
                 </div>
                 <div class="evento-info">
                     <span class="evento-tag">Conferencia Escolar</span>
@@ -158,5 +188,6 @@
         <p>&copy; 2026 Carlos de Jesus Martinez Pineda. Diseñado y desarrollado desde cero.</p>
     </footer>
 
+    <script src="/JavaScript/main.js"></script>
 </body>
 </html>
