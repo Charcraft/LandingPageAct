@@ -1,8 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/privacidad", "destination": "/privacy-policy.html" },
-    { "source": "/politica-privacidad", "destination": "/privacy-policy.html" }
-  ]
+  "trailingSlash": false
 }
