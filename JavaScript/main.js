@@ -1,14 +1,14 @@
-// Marca que JS está disponible (evita que el contenido quede oculto sin JS)
 document.documentElement.classList.add('js');
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* --- MENU HAMBURGUESA --- */
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navOverlay = document.querySelector('.nav-overlay');
-const navLinks = navMenu.querySelectorAll('.nav-links a');
+const navLinks = navMenu ? navMenu.querySelectorAll('.nav-links a') : [];
 const navSections = [...navLinks].map(a => document.querySelector(a.getAttribute('href')));
+
+if (navToggle && navMenu && navOverlay) {
 
 function setMenu(abierto) {
     navToggle.setAttribute('aria-expanded', String(abierto));
@@ -16,7 +16,6 @@ function setMenu(abierto) {
     navMenu.classList.toggle('abierto', abierto);
     document.body.classList.toggle('menu-abierto', abierto);
     navOverlay.hidden = !abierto;
-    // El overlay solo existe para tapar; si se oculta, opacity no lo apaga.
     requestAnimationFrame(() => navOverlay.classList.toggle('visible', abierto));
 }
 
@@ -24,10 +23,6 @@ navToggle.addEventListener('click', () => {
     setMenu(navToggle.getAttribute('aria-expanded') !== 'true');
 });
 
-// El overlay arranca en top:0 y tapaba el header entero, dejando el logo
-// apagado y el boton de cerrar sin poder pulsarse. Se deja fuera la franja
-// del header, que es justo lo que hay que mantener accesible.
-// El alto del header cambia con el breakpoint, asi que se recalcula al rotar.
 const headerQuery = window.matchMedia('(max-width: 600px)');
 const syncOverlay = () => {
     navOverlay.style.top = getComputedStyle(document.documentElement)
@@ -36,7 +31,6 @@ const syncOverlay = () => {
 syncOverlay();
 headerQuery.addEventListener('change', syncOverlay);
 
-// Un link navega: cierra el menu para no dejar el overlay sobre el destino.
 navLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
 
 navOverlay.addEventListener('click', () => setMenu(false));
@@ -48,37 +42,42 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Si se abre el menu y se pasa a desktop, el panel fixed quedaria pegado a la
-// derecha. Al volver a movil tiene que quedar cerrado.
 const mobileQuery = window.matchMedia('(min-width: 601px)');
 mobileQuery.addEventListener('change', (e) => {
     if (e.matches) setMenu(false);
 });
 
-// Marca en el menu la seccion que se esta viendo.
+}
+
 function marcarActivo() {
     const mitad = window.scrollY + window.innerHeight / 2;
     let actual = -1;
     navSections.forEach((s, i) => {
         if (s && s.offsetTop <= mitad) actual = i;
     });
-    navLinks.forEach((a, i) => a.classList.toggle('activo', i === actual));
+    navLinks.forEach((a, i) => {
+        const esActiva = i === actual;
+        a.classList.toggle('activo', esActiva);
+        if (esActiva) {
+            a.setAttribute('aria-current', 'true');
+        } else {
+            a.removeAttribute('aria-current');
+        }
+    });
 }
 
-// Efecto de scroll en el header
 const header = document.querySelector('header');
 const retroGrid = document.querySelector('.retro-grid');
 
-// Un solo listener con requestAnimationFrame. Antes había dos scroll listeners
-// sueltos: en móvil cada gesto dispara layout y paint de las capas fijas
-// (blur del header, grid con perspective) y el scroll se engancha.
 let ticking = false;
 
 function onScroll() {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+    if (header) {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
 
     if (retroGrid && !reduceMotion) {
@@ -97,13 +96,10 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Elementos que se animan al entrar en viewport (estilo Detroit Become Human)
 const revealables = document.querySelectorAll(
-    '.skill-card, .proyecto-card, .evento-card, .cert-item, .titulo-seccion'
+    '.skill-card, .proyecto-card, .evento-card, .cert-item, .social-link, .titulo-seccion'
 );
 
-// Con movimiento reducido no hay animación de entrada: si se aplicara igual,
-// el contenido se quedaría en opacity 0 hasta que el observer lo disparara.
 if (!reduceMotion) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

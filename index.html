@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Portafolio de Carlos de Jesus Martinez Pineda, Ingeniero en Sistemas. Build. Scale. Optimize.">
+    <meta property="og:title" content="Carlos Martinez | Ingeniero en Sistemas">
+    <meta property="og:description" content="Aplicaciones web robustas, eficientes y centradas en el usuario. Build. Scale. Optimize.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./image/yopro.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./image/letra-c.png">
     <title>Carlos Martinez | Ingeniero en Sistemas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,19 +18,19 @@
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <div class="retro-bg">
+    <div class="retro-bg" aria-hidden="true">
         <div class="retro-stars"></div>
         <div class="retro-sun"></div>
         <div class="retro-grid"></div>
     </div>
-    <div class="retro-scanlines"></div>
-    <div class="retro-vignette"></div>
+    <div class="retro-scanlines" aria-hidden="true"></div>
+    <div class="retro-vignette" aria-hidden="true"></div>
 
     <header>
         <nav class="nav-container" aria-label="Navegación principal">
             <a href="#sobre-mi" class="logo" aria-label="Ir al inicio"><img src="./image/letra-c.png" alt="" class="logo-img" width="32" height="32"></a>
-
             <button class="nav-toggle" type="button"
                     aria-label="Abrir menú"
                     aria-expanded="false"
@@ -36,9 +42,6 @@
         </nav>
     </header>
 
-    <!-- El panel va fuera de <header> a proposito: el backdrop-filter del header
-         crea un containing block, y un position:fixed dentro de el se anclaria
-         al header en vez de a la ventana. -->
     <nav class="nav-menu" id="nav-menu" aria-label="Menú de secciones">
         <ul class="nav-links">
             <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -46,148 +49,184 @@
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#eventos">Eventos</a></li>
             <li><a href="#certificaciones">Certificaciones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
     <div class="nav-overlay" hidden></div>
 
-    <section id="sobre-mi">
-        <div class="sobre-mi-container">
-            <div class="sobre-mi-texto">
-                <p class="hero-sub">Hola, soy Carlos de Jesus</p>
-                <h1 class="hero-titulo">Carlos de Jesus Martinez Pineda.<br>Build. Scale. Optimize.</h1>
-                <p class="hero-descripcion">
-                    Soy Ingeniero en Sistemas especializado en crear aplicaciones web robustas, eficientes y centradas en el usuario. Me apasiona resolver problemas complejos mediante código limpio y buenas prácticas de arquitectura.
-                </p>
-                <div>
+    <main id="contenido">
+        <section id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+            <div class="sobre-mi-container">
+                <div class="sobre-mi-texto">
+                    <p class="hero-sub">Hola, soy Carlos de Jesus</p>
+                    <h1 class="hero-titulo" id="titulo-sobre-mi">Carlos de Jesus Martinez Pineda.<br>Build. Scale. Optimize.</h1>
+                    <p class="hero-descripcion">
+                        Soy Ingeniero en Sistemas especializado en crear aplicaciones web robustas, eficientes y centradas en el usuario. Me apasiona resolver problemas complejos mediante código limpio y buenas prácticas de arquitectura.
+                    </p>
                     <a href="#proyectos" class="btn-cta">Ver mis proyectos</a>
                 </div>
+                <figure class="sobre-mi-foto-wrapper">
+                    <div class="sobre-mi-foto-marco">
+                        <img class="perfil-img" src="./image/yopro.jpeg" alt="Fotografía de Carlos de Jesus Martinez Pineda" width="340" height="340" fetchpriority="high" decoding="async">
+                    </div>
+                </figure>
             </div>
-            
-            <div class="sobre-mi-foto-wrapper">
-                <div class="sobre-mi-foto-marco">
-                    <img class="perfil-img" src="./image/yopro.jpeg" alt="Fotografía de Carlos de Jesus Martinez Pineda" width="340" height="340">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="lenguajes">
-        <h2 class="titulo-seccion">Lenguajes de Programación</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <img src="./image/hmtl-5.png" alt="Logo de HTML5" width="48" height="48" loading="lazy" decoding="async">
-                <p>HTML5</p>
-            </div>
-            <div class="skill-card">
-                <img src="./image/css-3.png" alt="Logo de CSS3" width="48" height="48" loading="lazy" decoding="async">
-                <p>CSS3</p>
-            </div>
-            <div class="skill-card">
-                <img src="./image/mysql.png" alt="Logo de MySQL" width="48" height="48" loading="lazy" decoding="async">
-                <p>MySQL</p>
-            </div>
-            <div class="skill-card">
-                <img src="./image/python.png" alt="Logo de Python" width="48" height="48" loading="lazy" decoding="async">
-                <p>Python</p>
-            </div>
-            <div class="skill-card">
-                <img src="./image/java.png" alt="Logo de Java" width="48" height="48" loading="lazy" decoding="async">
-                <p>Java</p>
-            </div>
-            <div class="skill-card">
-                <img src="./image/c++logo.png" alt="Logo de C++" width="48" height="48" loading="lazy" decoding="async">
-                <p>C++</p>
-            </div>
-            
-        </div>
-    </section>
+        <section id="lenguajes" aria-labelledby="titulo-lenguajes">
+            <h2 class="titulo-seccion" id="titulo-lenguajes">Lenguajes de Programación</h2>
+            <ul class="skills-grid">
+                <li class="skill-card">
+                    <img src="./image/hmtl-5.png" alt="Logo de HTML5" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">HTML5</span>
+                </li>
+                <li class="skill-card">
+                    <img src="./image/css-3.png" alt="Logo de CSS3" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">CSS3</span>
+                </li>
+                <li class="skill-card">
+                    <img src="./image/mysql.png" alt="Logo de MySQL" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">MySQL</span>
+                </li>
+                <li class="skill-card">
+                    <img src="./image/python.png" alt="Logo de Python" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">Python</span>
+                </li>
+                <li class="skill-card">
+                    <img src="./image/java.png" alt="Logo de Java" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">Java</span>
+                </li>
+                <li class="skill-card">
+                    <img src="./image/c++logo.png" alt="Logo de C++" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="skill-nombre">C++</span>
+                </li>
+            </ul>
+        </section>
 
-    <section id="proyectos">
-        <h2 class="titulo-seccion">Mis Proyectos</h2>
-        <div class="proyectos-grid">
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">Landing Page Blog Personal</h3>
-                    <p class="proyecto-desc">Diseño e implementación de una landing page para un blog personal, con diseño responsive y optimización para mejorar los tiempos de carga.</p>
-                    <ul class="proyecto-tech">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </div>
+        <section id="proyectos" aria-labelledby="titulo-proyectos">
+            <h2 class="titulo-seccion" id="titulo-proyectos">Mis Proyectos</h2>
+            <div class="proyectos-grid">
+                <article class="proyecto-card">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Landing Page Blog Personal</h3>
+                        <p class="proyecto-desc">Diseño e implementación de una landing page para un blog personal, con diseño responsive y optimización para mejorar los tiempos de carga.</p>
+                        <ul class="proyecto-tech">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="proyecto-card">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">App Distribuciones de Probabilidad y Prueba de Hipotesis</h3>
+                        <p class="proyecto-desc">Aplicacion desarrollada para el análisis estadístico de distribuciones de probabilidad y realización de pruebas de hipótesis, utilizando el teorema de Bayes.</p>
+                        <ul class="proyecto-tech">
+                            <li>Python</li>
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">App Distribuciones de Probabilidad y Prueba de Hipotesis</h3>
-                    <p class="proyecto-desc">Aplicacion desarrollada para el análisis estadístico de distribuciones de probabilidad y realización de pruebas de hipótesis, utilizando el teorema de Bayes.</p>
-                    <ul class="proyecto-tech">
-                        <li>Python</li>
-                        <li>NumPy</li>
-                        <li>Pandas  </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="eventos">
-        <h2 class="titulo-seccion">Eventos</h2>
-        <div class="eventos-grid">
-            <div class="evento-card">
-                <div class="evento-contenedor-img">
-                    <img class="evento-img" src="./image/PlayeraRecordGuiness.jpeg" alt="Formación de la silueta de una camiseta con cientos de personas para el récord Guinness" loading="lazy" decoding="async">
-                </div>
-                <div class="evento-info">
-                    <span class="evento-tag">World Record Guiness</span>
-                    <h3 class="evento-titulo">Playera Humana más grande del mundo</h3>
-                    <p class="evento-desc">Participación en equipo para el World Record Guiness llevado a cabo En febrero de 2026, el estado de Chiapas (México) logró el récord Guinness por formar la imagen humana más grande del mundo con la silueta de una camiseta.</p>
-                </div>
+        <section id="eventos" aria-labelledby="titulo-eventos">
+            <h2 class="titulo-seccion" id="titulo-eventos">Eventos</h2>
+            <div class="eventos-grid">
+                <article class="evento-card">
+                    <figure class="evento-contenedor-img">
+                        <img class="evento-img" src="./image/PlayeraRecordGuiness.jpeg" alt="Formación de la silueta de una camiseta con cientos de personas para el récord Guinness" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="evento-info">
+                        <span class="evento-tag">World Record Guiness</span>
+                        <h3 class="evento-titulo">Playera Humana más grande del mundo</h3>
+                        <p class="evento-desc">Participación en equipo para el World Record Guiness llevado a cabo En febrero de 2026, el estado de Chiapas (México) logró el récord Guinness por formar la imagen humana más grande del mundo con la silueta de una camiseta.</p>
+                    </div>
+                </article>
+                <article class="evento-card">
+                    <figure class="evento-contenedor-img">
+                        <img class="evento-img" src="./image/conferenciaUni.jpg" alt="Ponentes en el escenario durante la Conferencia Escolar Universitaria" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="evento-info">
+                        <span class="evento-tag">Conferencia Escolar</span>
+                        <h3 class="evento-titulo">Conferencia Escolar Universitaria</h3>
+                        <p class="evento-desc">Charla técnica impartida sobre optimización de bundles en frameworks de frontend modernos y su impacto en Core Web Vitals.</p>
+                    </div>
+                </article>
             </div>
-            <div class="evento-card">
-                <div class="evento-contenedor-img">
-                    <img class="evento-img" src="./image/conferenciaUni.jpg" alt="Ponentes en el escenario durante la Conferencia Escolar Universitaria" loading="lazy" decoding="async">
-                </div>
-                <div class="evento-info">
-                    <span class="evento-tag">Conferencia Escolar</span>
-                    <h3 class="evento-titulo">Conferencia Escolar Universitaria</h3>
-                    <p class="evento-desc">Charla técnica impartida sobre optimización de bundles en frameworks de frontend modernos y su impacto en Core Web Vitals.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="certificaciones">
-        <h2 class="titulo-seccion">Certificaciones y Cursos</h2>
-        <div class="cert-lista">
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Networking Academy Networking Basics</h3>
-                    <p>Cisco Networking Academy</p>
-                </div>
-                <div class="cert-fecha">2025</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Networking Academy Introduction to IoT</h3>
-                    <p>Cisco Networking Academy</p>
-                </div>
-                <div class="cert-fecha">2025</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Networking Academy Operating Systems Basics</h3>
-                    <p>Cisco Networking Academy</p>
-                </div>
-                <div class="cert-fecha">2026</div>
-            </div>
-        </div>
-    </section>
+        <section id="certificaciones" aria-labelledby="titulo-certificaciones">
+            <h2 class="titulo-seccion" id="titulo-certificaciones">Certificaciones y Cursos</h2>
+            <ul class="cert-lista">
+                <li class="cert-item">
+                    <div class="cert-info">
+                        <h3>Networking Academy Networking Basics</h3>
+                        <p>Cisco Networking Academy</p>
+                    </div>
+                    <time class="cert-fecha" datetime="2025">2025</time>
+                </li>
+                <li class="cert-item">
+                    <div class="cert-info">
+                        <h3>Networking Academy Introduction to IoT</h3>
+                        <p>Cisco Networking Academy</p>
+                    </div>
+                    <time class="cert-fecha" datetime="2025">2025</time>
+                </li>
+                <li class="cert-item">
+                    <div class="cert-info">
+                        <h3>Networking Academy Operating Systems Basics</h3>
+                        <p>Cisco Networking Academy</p>
+                    </div>
+                    <time class="cert-fecha" datetime="2026">2026</time>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contacto" aria-labelledby="titulo-contacto">
+            <h2 class="titulo-seccion" id="titulo-contacto">Contacto</h2>
+            <p class="contacto-texto">Si tienes un proyecto en mente o quieres colaborar, escríbeme por cualquiera de estos medios.</p>
+            <ul class="social-lista">
+                <li>
+                    <a class="social-link" href="https://github.com/Charcraft" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Carlos Martinez">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://www.instagram.com/cjezp/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Carlos Martinez">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://www.youtube.com/@charcraftt" target="_blank" rel="noopener noreferrer" aria-label="YouTube de Carlos Martinez">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        <span>YouTube</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://www.facebook.com/profile.php?id=61593109829929" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Carlos Martinez">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <span>Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="mailto:charcraftycarlos@gmail.com" aria-label="Enviar correo a Carlos Martinez">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>Email</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Carlos de Jesus Martinez Pineda. Diseñado y desarrollado desde cero.</p>
+        <p>&copy; 2026 Carlos de Jesus Martinez Pineda. Diseñado y desarrollado desde cero. <a href="./privacy-policy.html">Política de privacidad</a></p>
     </footer>
 
-    <script src="./JavaScript/main.js"></script>
+    <script src="./JavaScript/main.js" defer></script>
 </body>
 </html>

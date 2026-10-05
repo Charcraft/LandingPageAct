@@ -1,4 +1,3 @@
-/* --- VARIABLES Y RESET --- */
 :root {
     --bg-principal: #000000;
     --bg-secundario: #3b1e1e;
@@ -11,8 +10,7 @@
     --glass-border: rgba(85, 51, 51, 0.5);
     --font-pixel: 'Press Start 2P', monospace;
     --font-pixel-body: 'VT323', monospace;
-    /* Alto real del header. El panel lateral se posiciona respecto a el, asi
-       que si cambia el padding del nav hay que tocar esta variable. */
+    
     --header-h: 4.75rem;
 }
 
@@ -31,15 +29,13 @@ body {
     background-color: var(--bg-principal);
     color: var(--texto-principal);
     line-height: 1.6;
-    /* El overflow-x:hidden tapaba el desbordamiento real de los grids en vez
-       de arreglarlo. Se queda como red de seguridad, no como solución. */
+    
     overflow-x: hidden;
     font-size: 20px;
     letter-spacing: 0.5px;
-    /* Palabras largas (URLs, nombres de tech) no rompen el layout en 320px. */
+    
     overflow-wrap: break-word;
-    /* Safe areas: en horizontal con notch, sin esto el contenido entra
-       debajo de la isla o de la barra de gestos. */
+    
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
 }
@@ -49,7 +45,74 @@ body {
     color: var(--bg-principal);
 }
 
-/* --- FONDO RETRO 80s (PIXELS) --- */
+ul.skills-grid,
+ul.cert-lista {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+figure.sobre-mi-foto-wrapper,
+figure.evento-contenedor-img {
+    margin: 0;
+}
+
+.skill-nombre {
+    display: block;
+}
+
+time.cert-fecha {
+    display: block;
+    flex: 0 0 auto;
+}
+
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 1rem;
+    z-index: 2000;
+    background: var(--acento);
+    color: #fff;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 6px 6px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    top: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+footer a {
+    color: var(--texto-secundario);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+footer a:hover {
+    color: var(--acento);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 3px;
+}
+
 .retro-bg {
     position: fixed;
     inset: 0;
@@ -130,9 +193,6 @@ body {
     to { background-position: 0 50px; }
 }
 
-/* El sol es un circulo perfecto de 320px. En una columna estrecha se solapa con
-   los bloques de texto y las tarjetas; al bajar a un movil deja de leerse como
-   un sol y ensucia la tipografia. Se encoge a un disco pequeno arriba. */
 @media (max-width: 600px) {
     .retro-sun {
         top: 4rem;
@@ -165,7 +225,6 @@ body {
     background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
 }
 
-/* --- HEADER / NAV RESPONSIVE --- */
 header {
     position: fixed;
     top: 0;
@@ -197,7 +256,6 @@ header.scrolled {
     background: transparent;
 }
 
-/* --- BOTON HAMBURGUESA (solo movil) --- */
 .nav-toggle {
     display: none;
     flex: 0 0 auto;
@@ -236,10 +294,6 @@ header.scrolled {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* En escritorio el panel vuelve a ser la fila de links de la barra. Vive
-   fuera del <header> porque su backdrop-filter crea un containing block que
-   romperia un position:fixed, asi que se ancla a pantalla con los mismos
-   margenes que el contenedor de 1100px del nav. */
 @media (min-width: 601px) {
     .nav-menu {
         position: fixed;
@@ -250,15 +304,14 @@ header.scrolled {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        /* Mismo z-index que el header: al ir despues en el DOM, gana el orden
-           de pintura y los links se ven por encima de la barra. */
+        
         z-index: 1000;
         padding-left: max(2rem, calc((100vw - 1100px) / 2 + 2rem));
         padding-right: max(2rem, calc((100vw - 1100px) / 2 + 2rem));
         visibility: visible;
         transform: none;
         overflow: visible;
-        /* Solo la fila de links intercepta clicks; el resto es transparente. */
+        
         pointer-events: none;
     }
 
@@ -267,10 +320,6 @@ header.scrolled {
     }
 }
 
-/* Capa oscurecida bajo el menu abierto. */
-/* Capa oscurecida bajo el menu abierto. No cubre la franja del header: el
-   panel es de 78vw, y con el overlay encima el logo quedaba apagado y el
-   boton de cerrar dejaba de ser pulsable. */
 .nav-overlay {
     position: fixed;
     inset: 0;
@@ -298,7 +347,7 @@ body.menu-abierto {
     align-items: center;
     gap: 0.5rem;
     letter-spacing: 1px;
-    /* Mismo truco que el nav: 32px de imagen no son un alvo cómodo. */
+    
     position: relative;
     padding: 0.25rem;
     flex: 0 0 auto;
@@ -327,8 +376,7 @@ body.menu-abierto {
 .nav-links {
     display: flex;
     list-style: none;
-    /* 0.75rem deja el hueco necesario para que las áreas de toque de los links
-       vecinos (que sobresalen 0.25rem a cada lado) no se pisen. */
+    
     gap: 0.75rem;
 }
 
@@ -343,9 +391,6 @@ body.menu-abierto {
     letter-spacing: 0.5px;
 }
 
-/* El link medía 11px de alto: un 25% del mínimo táctil de 44px. Este pseudo
-   amplía el área pulsable sin alterar la caja visual ni el subrayado, que
-   seguiría desligado del texto si subieras el min-height del <a>. */
 .nav-links a::before {
     content: '';
     position: absolute;
@@ -356,8 +401,6 @@ body.menu-abierto {
     transform: translateY(-50%);
 }
 
-/* A 600px y menos el link pasa a medir 44px de alto, así que el ::before
-   sobra y solo duplicaría el área. */
 @media (max-width: 600px) {
     .nav-links a::before {
         display: none;
@@ -388,14 +431,12 @@ body.menu-abierto {
     transform: scale(0.95);
 }
 
-/* --- ESTILOS GENERALES DE SECCIÓN --- */
 section {
     padding: 8rem 2rem 6rem 2rem;
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
-    /* Sin esto, saltar a #lenguajes desde el nav deja el título debajo del
-       header fijo. El header mide ~76px; 5rem lo deja justo. */
+    
     scroll-margin-top: 5rem;
 }
 
@@ -437,7 +478,6 @@ section::before {
     font-weight: 700;
 }
 
-/* --- ANIMACIONES BASE --- */
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
@@ -464,7 +504,6 @@ section::before {
     50% { opacity: 1; }
 }
 
-/* --- MOVIMIENTO REDUCIDO --- */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -494,7 +533,6 @@ section::before {
     }
 }
 
-/* --- ANIMACIÓN REVEAL AL SCROLL --- */
 .js .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -507,7 +545,6 @@ section::before {
     transform: translateY(0);
 }
 
-/* --- SOBRE MÍ (HERO CON FOTO RESTRUCTURADO) --- */
 .sobre-mi-container {
     display: flex;
     align-items: center;
@@ -529,9 +566,6 @@ section::before {
     opacity: 0.3;
 }
 
-/* El desktop ya es un flex row: una línea decorativa a la izquierda queda
-   colgando al principio del texto sin nada que acotar. En móvil, donde la
-   columna sí es un bloque, la línea marca el comienzo de la sección. */
 @media (min-width: 901px) {
     .sobre-mi-container::before {
         display: none;
@@ -614,7 +648,6 @@ section::before {
     transform: translateY(1px) scale(0.98);
 }
 
-/* Contenedor de la Foto de Perfil */
 .sobre-mi-foto-wrapper {
     flex: 0 0 340px;
     display: flex;
@@ -638,7 +671,6 @@ section::before {
     transform: translateY(-10px) scale(1.02);
 }
 
-/* Efecto de borde flotante muy estilo dev */
 .sobre-mi-foto-marco::after {
     content: '';
     position: absolute;
@@ -676,11 +708,9 @@ section::before {
     transform: scale(1.02);
 }
 
-/* --- LENGUAJES DE PROGRAMACIÓN --- */
 .skills-grid {
     display: grid;
-    /* min() en el mínimo del track: con minmax(150px, 1fr) puro, en pantallas
-       de 320px el track no cabe y la tarjeta se sale. */
+    
     grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
@@ -737,11 +767,9 @@ section::before {
     transform: scale(1.1);
 }
 
-/* --- PROYECTOS --- */
 .proyectos-grid {
     display: grid;
-    /* Antes minmax(320px, 1fr) a secas: en un móvil de 320px el track no cabe
-       en el padding y la tarjeta se salía 19px. */
+    
     grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 2.5rem;
     margin-top: 3rem;
@@ -816,7 +844,6 @@ section::before {
     margin-top: auto;
 }
 
-/* --- EVENTOS --- */
 .eventos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
@@ -893,7 +920,6 @@ section::before {
     font-size: 0.9rem;
 }
 
-/* --- CERTIFICACIONES --- */
 .cert-lista {
     display: flex;
     flex-direction: column;
@@ -936,7 +962,56 @@ section::before {
     font-size: 0.6rem;
 }
 
-/* --- FOOTER --- */
+.contacto-texto {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    max-width: 620px;
+}
+
+ul.social-lista {
+    list-style: none;
+    padding-left: 0;
+    margin: 2.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link svg {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    fill: var(--acento);
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    border-color: var(--acento);
+    box-shadow: 0 15px 35px -12px rgba(248, 56, 56, 0.4);
+}
+
+.social-link:hover svg {
+    transform: scale(1.12);
+}
+
 footer {
     text-align: center;
     padding: 3rem 2rem;
@@ -947,9 +1022,6 @@ footer {
     line-height: 1.8;
 }
 
-/* --- MEDIA QUERIES (RESPONSIVE DESIGN) --- */
-
-/* Tablets y móviles grandes */
 @media (max-width: 900px) {
     .sobre-mi-container {
         flex-direction: column-reverse;
@@ -972,11 +1044,8 @@ footer {
     }
 }
 
-/* Móviles pequeños */
 @media (max-width: 600px) {
-    /* El header sigue fixed (antes absolute) para que el boton de menu quede
-       siempre accesible al hacer scroll. El contenido se aparta con el
-       padding-top del body, no con un margen en cada seccion. */
+    
     section:first-of-type {
         padding-top: 5rem;
     }
@@ -993,8 +1062,7 @@ footer {
         display: flex;
     }
 
-    /* El menu baja desde el header. fixed + right:0 lo ancla a la pantalla,
-       asi que el header puede hacer scroll-earn con position:relative. */
+    
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1006,8 +1074,7 @@ footer {
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid var(--borde);
-        /* Empieza justo debajo del header: el boton de cerrar (el propio
-           hamburguesa, ya en X) queda siempre visible y al alcance. */
+        
         top: var(--header-h);
         padding: 1.5rem 1.5rem 2rem;
         padding-top: calc(var(--header-h) + 1rem + env(safe-area-inset-top));
@@ -1029,8 +1096,7 @@ footer {
         gap: 0;
     }
 
-    /* Filas separadas por un hairline, el recurso estandar cuando los links
-       van apilados: separa sin ruido y duplica el area de toque util. */
+    
     .nav-links li {
         border-bottom: 1px solid var(--borde);
     }
@@ -1047,8 +1113,7 @@ footer {
         font-size: 0.65rem;
     }
 
-    /* En columna el subrayado se dibuja completo a la izquierda y crece hacia
-        la derecha, como el estado activo de un menu lateral. */
+    
     .nav-links a::after {
         bottom: 0.6rem;
         width: 0;
@@ -1062,8 +1127,7 @@ footer {
 
     section {
         padding: 4rem 1.2rem 2rem 1.2rem;
-        /* El header ahora es fixed tambien en movil, asi que toda seccion
-           necesita reserva superior para no quedar bajo la barra. */
+        
         scroll-margin-top: 4rem;
     }
 
@@ -1092,7 +1156,6 @@ footer {
     }
 }
 
-/* --- PANTALLAS MUY ESTRECHAS (320-360px) --- */
 @media (max-width: 380px) {
     body {
         font-size: 18px;
@@ -1103,8 +1166,7 @@ footer {
     }
 
     .nav-menu {
-        /* A 320px un panel al 100% tapaba el logo y el propio boton de cerrar.
-           Con 78vw la franja libre deja siempre accesible la cabecera. */
+        
         width: 78vw;
         padding-top: 1.25rem;
         padding-left: 1.1rem;
@@ -1119,8 +1181,7 @@ footer {
         padding: 3.5rem 1rem 1.75rem 1rem;
     }
 
-    /* Press Start 2P es ancha y monoespaciada: "Certificaciones" (14
-       caracteres) se salía de la caja a 320px. */
+    
     .titulo-seccion {
         font-size: 1.1rem;
         margin-bottom: 2rem;
@@ -1133,8 +1194,7 @@ footer {
 
     .skills-grid {
         gap: 0.75rem;
-        /* Dos columnas fixes: con auto-fill y 150px de mínimo cae a una sola
-           columna en 320px y la lista se vuelve un scroll interminable. */
+        
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1156,12 +1216,19 @@ footer {
         display: block;
         padding: 1rem 1.25rem;
     }
+
+    ul.social-lista {
+        gap: 0.75rem;
+    }
+
+    .social-link {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
-/* --- PANTALLAS ALTAS (móvil en vertical) --- */
 @media (min-width: 601px) and (max-height: 500px) {
-    /* Móvil en horizontal: el header fixed sí estorba y el scroll-margin
-       de 5rem dejaría un hueco enorme. */
+    
     .sobre-mi-container {
         min-height: 0;
         padding-top: 5rem;
