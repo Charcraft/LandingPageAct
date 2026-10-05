@@ -1,0 +1,101 @@
+.retro-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0a0000 0%, #1a0505 45%, #000000 100%);
+}
+
+.retro-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 22% 18%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 68% 28%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 48% 60%, rgba(248, 56, 56, 0.8), transparent),
+        radial-gradient(1px 1px at 82% 72%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 12% 78%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(2px 2px at 90% 15%, rgba(248, 56, 56, 0.6), transparent),
+        radial-gradient(1px 1px at 35% 40%, rgba(255, 255, 255, 0.6), transparent);
+    background-size: 320px 320px;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+}
+
+.retro-sun {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(320px, 78vw);
+    height: min(320px, 78vw);
+    border-radius: 50%;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 5px,
+            rgba(0, 0, 0, 0.25) 5px,
+            rgba(0, 0, 0, 0.25) 9px
+        ),
+        linear-gradient(to bottom, #f83838 0%, #e90e0e 45%, #3b1e1e 100%);
+    box-shadow: 0 0 80px rgba(248, 56, 56, 0.55), 0 0 200px rgba(248, 56, 56, 0.3);
+    image-rendering: pixelated;
+    animation: sunGlow 5s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.25); }
+}
+
+.retro-grid {
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 62%;
+    background-image:
+        linear-gradient(90deg, rgba(248, 56, 56, 0.35) 1px, transparent 1px),
+        linear-gradient(rgba(248, 56, 56, 0.35) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(300px) rotateX(62deg);
+    transform-origin: center bottom;
+    image-rendering: pixelated;
+    animation: gridScroll 1.6s linear infinite;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 20%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 20%, transparent 90%);
+}
+
+@keyframes gridScroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 50px; }
+}
+
+.retro-scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12) 0,
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+.retro-vignette {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+}

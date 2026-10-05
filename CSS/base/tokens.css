@@ -1,0 +1,14 @@
+:root {
+    --bg-principal: #000000;
+    --bg-secundario: #3b1e1e;
+    --texto-principal: #ffffff;
+    --texto-secundario: #b89c9c;
+    --acento: #f83838;
+    --acento-hover: #e90e0e;
+    --borde: #553333;
+    --glass-bg: rgba(59, 30, 30, 0.4);
+    --glass-border: rgba(85, 51, 51, 0.5);
+    --font-pixel: 'Press Start 2P', monospace;
+    --font-pixel-body: 'VT323', monospace;
+    --header-h: 4.75rem;
+}

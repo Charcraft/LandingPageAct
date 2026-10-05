@@ -1,0 +1,310 @@
+.skill-nombre {
+    display: block;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    line-height: 1.8;
+    color: var(--texto-principal);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--acento), var(--acento-hover));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: var(--acento);
+    box-shadow:
+        0 20px 40px -12px rgba(248, 56, 56, 0.4),
+        0 0 20px rgba(248, 56, 56, 0.1);
+}
+
+.skill-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover img {
+    transform: scale(1.1);
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.proyecto-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.proyecto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--acento), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.proyecto-card:hover::before {
+    opacity: 1;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: var(--acento);
+    box-shadow:
+        0 30px 60px -12px rgba(248, 56, 56, 0.4),
+        0 0 30px rgba(248, 56, 56, 0.15);
+}
+
+.proyecto-info {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.proyecto-titulo {
+    font-family: var(--font-pixel);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+}
+
+.proyecto-desc {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.proyecto-tech {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--acento);
+    margin-top: auto;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.evento-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.evento-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--acento);
+    box-shadow:
+        0 25px 50px -12px rgba(248, 56, 56, 0.4),
+        0 0 25px rgba(248, 56, 56, 0.1);
+}
+
+.evento-contenedor-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #190b0b;
+    position: relative;
+}
+
+.evento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.evento-contenedor-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    pointer-events: none;
+}
+
+.evento-card:hover .evento-img {
+    transform: scale(1.08);
+}
+
+.evento-info {
+    padding: 1.5rem;
+}
+
+.evento-tag {
+    display: inline-block;
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--acento);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.evento-titulo {
+    font-family: var(--font-pixel);
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.evento-desc {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.cert-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.cert-item {
+    background: var(--glass-bg);
+    border-left: 4px solid var(--acento);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+    transform: translateX(8px);
+    background: rgba(59, 30, 30, 0.6);
+    box-shadow: 0 10px 30px rgba(248, 56, 56, 0.2);
+}
+
+.cert-info h3 {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.8;
+}
+
+.cert-info p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.cert-fecha {
+    font-family: var(--font-pixel);
+    color: var(--acento);
+    font-size: 0.6rem;
+}
+
+time.cert-fecha {
+    display: block;
+    flex: 0 0 auto;
+}
+
+.contacto-texto {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    max-width: 620px;
+}
+
+ul.social-lista {
+    list-style: none;
+    padding-left: 0;
+    margin: 2.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link svg {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    fill: var(--acento);
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    border-color: var(--acento);
+    box-shadow: 0 15px 35px -12px rgba(248, 56, 56, 0.4);
+}
+
+.social-link:hover svg {
+    transform: scale(1.12);
+}
